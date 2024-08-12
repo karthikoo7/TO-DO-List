@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My List</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        div{
+            color: rgb(82, 232, 197) ;
+        }
+    </style>
+</head>
+<body>
+    <h1> To-Do List. </h1>
+
+    <% for (let post of posts) { %>
+    <div>
+        <h2>@ <%= post.username %></h2>
+        <h2>Task: <%= post.content %></h2>
+        <a href="http://localhost:8080/posts/<%= post.id %>"> Explore in detail</a>
+        <a href="http://localhost:8080/posts/<%= post.id %>/edit"> Edit Task</a>
+        <form action="/posts/<%= post.id %>?_method=DELETE" method="post">
+            <button style="margin: 2px;"> Delete </button>
+        </form>
+        <hr>
+    </div>
+    <%}%>
+    <br>
+    <hr>
+    
+    <a href="http://localhost:8080/posts/new"> Create A New Task</a>
+   
+</body>
+</html>
